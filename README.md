@@ -1,16 +1,30 @@
-1. 安装vim-plug
+1. 安装vim-plug插件管理器
 ``` shell
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-2. 安装Molokai颜色主题
+2. 安装、配置cscope代码浏览工具
+```
+yum install cscope
+cd your_proejct_path
+cscope -Rbq
+```
+-R：递归解析所有的子目录。
+-b：仅构建交叉引用(cross-reference)文件，即数据库，然后退出，而不会进入交互界面。
+-q：通过倒排索引加速符号的查找过程。该选项会导致cscope额外产生cscope.in.out和cscope.po.out两个文件。
+执行`cscope -Rbq`后会在当前目录下创建cscope.out、cscope.in.out、cscope.po.out。
+在当前项目下打开vim，执行`:cs show`查看database name，可以看到已经与数据库建立连接。
+执行`:cs f s <func_name>`可以在当前目录下查该函数的定义及使用路径。
+
+3. 安装Molokai颜色主题
 ```
 git clone https://github.com/tomasr/molokai.git
 cp -r molokai/colors/ ~/.vim/colors
 ```
 
-3. 将以下内容添加至~/.vimrc文件
+4. 配置vimrc
+安装nerdtree、tagbar、vim-airline、ctrlp.vim插件，将以下内容添加至~/.vimrc文件。
 ``` vim
 ""=========================插件管理器=====================================
 call plug#begin('~/.vim/plugged')
@@ -61,4 +75,4 @@ let g:airline#extensions#tabline#formatter = 'default'
 nmap <F8> :TagbarToggle<CR>
 ```
 
-4. 打开vim，执行 `:PlugInstall`
+5. 打开vim，执行 `:PlugInstall`
