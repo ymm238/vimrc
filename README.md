@@ -8,7 +8,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ```
 yum install cscope
 cd your_proejct_path
-cscope -Rbq
+find . -name "*.c" -o -name "*.h" > cscope.files
+cscope -Rbq -i cscope.files
 ```
 -R：递归解析所有的子目录。
 -b：仅构建交叉引用(cross-reference)文件，即数据库，然后退出，而不会进入交互界面。
