@@ -33,7 +33,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'preservim/nerdtree'
 	Plug 'preservim/tagbar'
 	Plug 'vim-airline/vim-airline'
- 	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'morhetz/gruvbox'
 call plug#end()
 ""=========================一般设置======================================= 
 set nocompatible          	"vim比vi支持更多的功能，如showcmd，避免冲突和副作用，最好关闭兼容 
@@ -57,14 +58,12 @@ set smartindent            	"改进版的cindent,自动识别以#开头的注释
 set autoindent              "autoindent配合下面一条命令根据不同语言类型进行不同的缩进操
 filetype plugin indent on 
 set nowrap
-"===========================选择molokai的模式=============================
+"===========================选择colorscheme=============================
 let g:rehash256 = 1 
 let g:molokai_original = 1 
-highlight NonText guibg=#060606 
-highlight Folded  guibg=#0A0A0A guifg=#9090D0 
 set t_Co=256 
 set background=dark 
-colorscheme  molokai 
+colorscheme  gruvbox
 set tabstop=4
 "================================NERDTree===================================
 nmap <F7> :NERDTreeToggle<CR>
