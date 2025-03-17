@@ -43,6 +43,10 @@ let g:airline_theme = 'gruvbox'	" 主题名称
 "===========================gruvbox========================
 colorscheme gruvbox  " 在 .vimrc 中设置主题
 set background=dark  " 或 light
+let g:rehash256 = 1
+let g:molokai_original = 1
+set t_Co=256
+set termguicolors           " 启用真彩色支持（需终端支持）
 "========================nerdcommenter=====================
 map <C-_> <Plug>NERDCommenterToggle	" Ctrl+/ 切换注释
 "=========================tagbar===========================
